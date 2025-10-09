@@ -4,35 +4,29 @@ using namespace std;
 #define pii pair<int ,int>
 #define vi vector<int>
 #define Harry55 ios::sync_with_stdio(0),cin.tie(0);
-const int MAX  = 1e9+5;
-
-int solve(int m, int n){
-    int arr[MAX];
+const int MAX  = 1e5+5;
+int solve(int n){
+    int arr[MAX] = {0};
     int top = 0;
-    arr[0] = m;
+    int x, ans = 0;
+    arr[top] = n;
     while(top >= 0){
-        m = arr[top--];
-        if(m == 0){
-            n += 1;
-        }
-        else if(n == 0) {
-            arr[++top] = m - 1;
-            n = 1;
-        }
-        else {
-            arr[++top] = m - 1;
-            arr[++top] = m;
-            n--;
+        x = arr[top--];
+        if(x == 1) ans+=1;
+        else if(x == 0) ans+=0;
+        else{
+            arr[++top] = x - 1;
+            arr[++top] = x - 2;
         }
     }
-    return n;
+    return ans;
 }
 
 signed main(){
     Harry55
-    int m, n;
-    cin >> m >> n;
-    cout << solve(m, n);
+    int n;
+    cin >> n;
+    cout << solve(n);
 }
 
 /*
