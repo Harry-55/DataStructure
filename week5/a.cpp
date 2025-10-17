@@ -23,10 +23,6 @@ void push(int x, query q[]){
     }
     else {
         cout << "FULL\n";
-        for(int i = 0 ; i < n ; i++){
-            cout << q[i].x << " ";
-        }
-        cout << '\n';
     }
 }
 int pop(query q[]){

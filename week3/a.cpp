@@ -16,8 +16,13 @@ term b[MAX_TERMS];
 
 void fast_transpose(term A[], term B[]){
     int row_term[MAX_TERMS], start_pos[MAX_TERMS];
-    B[0].col = A[0].row; B[0].row = A[0].col; B[0].val = A[0].val;
+
+    B[0].col = A[0].row; 
+    B[0].row = A[0].col; 
+    B[0].val = A[0].val;
+
     int num_col = A[0].col, num_term = A[0].val;
+    
     if(num_term > 0){
         for(int i = 0 ; i < num_col ; i++) row_term[i] = 0;
         for(int i = 1 ; i <= num_term ; i++) row_term[A[i].col]++;

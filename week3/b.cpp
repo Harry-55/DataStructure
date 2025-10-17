@@ -101,12 +101,12 @@ void solve(){
     int n, m, val;
     cin >> n >> m >> val;
     a[0].row = n, a[0].col = m, a[0].val = val;
-    for(int i = 1 ; i <= n ; i++){
+    for(int i = 1 ; i <= a[0].val ; i++){
         cin >> a[i].row >> a[i].col >> a[i].val;
     }
     cin >> n >> m >> val;
     b[0].row = n, b[0].col = m, b[0].val = val;
-    for(int i = 1 ; i <= n ; i++)
+    for(int i = 1 ; i <= b[0].val ; i++)
         cin >> b[i].row >> b[i].col >> b[i].val;
     mat_mult(a, b, d);
     for(int i = 0 ; i <= d[0].val ; i++) cout << d[i].row <<" "<< d[i].col <<" "<< d[i].val<< '\n';

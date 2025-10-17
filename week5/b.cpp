@@ -22,45 +22,45 @@ bool isFull() { return top >= MAX * MAX; }
 void push(int x, int y) {
     if (!isFull()) path[++top] = {x, y};
 }
-void pop() { if (!isEmpty()) top--; }
+void pop() {if (!isEmpty()) top--;}
 
 bool check(int x, int y) { return x >= 0 && y >= 0 && x < n && y < m; }
 
 int maze[MAX][MAX];
-bool visited[MAX][MAX];
-bool found = false;
+bool vis[MAX][MAX];
+bool found = 0;
 
 void dfs(int x, int y) {
     if (found) return;
 
-    visited[x][y] = true;
+    vis[x][y] = 1;
     push(x, y);
 
     if (x == end_x && y == end_y) {
-        found = true;
+        found = 1;
         return;
     }
 
     for (int i = 0; i < 8; i++) {
         int nx = x + dx[i];
         int ny = y + dy[i];
-        if (check(nx, ny) && !visited[nx][ny] && maze[nx][ny] == 0) {
+        if (check(nx, ny) && !vis[nx][ny] && maze[nx][ny] == 0) {
             dfs(nx, ny);
             if (found) return;
         }
     }
     pop();
-    visited[x][y] = false;
+    vis[x][y] = 0;
 }
 
 void solve() {
     cin >> n >> m;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++){
         for (int j = 0; j < m; j++) {
             cin >> maze[i][j];
-            visited[i][j] = false;
+            vis[i][j] = 0;
         }
-
+    }
     cin >> start_x >> start_y >> end_x >> end_y;
     dfs(start_x, start_y);
 
@@ -70,8 +70,7 @@ void solve() {
     }
 
     for (int i = 0; i <= top; i++) {
-        cout << "(" << path[i].x << ", " << path[i].y << ")";
-        if (i < top) cout << " ";
+        cout << "(" << path[i].x << ", " << path[i].y << ") ";
     }
 }
 
