@@ -36,6 +36,32 @@ void fast_transpose(term A[], term B[]){
         }
     }
 }
+void fast_transpose(term A[], term B[]) {
+    int temp[MAX_TERMS];
+
+    B[0].col = A[0].row;
+    B[0].row = A[0].col;
+    B[0].val = A[0].val;
+
+    int num_col = A[0].col, num_term = A[0].val;
+
+    if (num_term > 0) {
+        for (int i = 0; i < num_col; i++) temp[i] = 0;
+        for (int i = 1; i <= num_term; i++) temp[A[i].col]++;
+        int sum = 1;
+        for (int i = 0; i < num_col; i++) {
+            int t = temp[i];
+            temp[i] = sum;
+            sum += temp[i];
+        }
+        for (int i = 1; i <= num_term; i++) {
+            int pos = temp[A[i].col]++;
+            B[pos].row = A[i].col;
+            B[pos].col = A[i].row;
+            B[pos].val = A[i].val;
+        }
+    }
+}
 
 void solve(){
     int n, m, v;

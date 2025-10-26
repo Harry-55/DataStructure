@@ -5,15 +5,17 @@ using namespace std;
 #define Harry55 ios::sync_with_stdio(0),cin.tie(0);
 #define MAX_TERMS 101
 
-typedef struct
-{
+typedef struct{
     int col;
     int row;
     int val;
 } term;
+
 term a[MAX_TERMS];
 term b[MAX_TERMS];
 term d[MAX_TERMS];
+
+
 void fast_transpose(term A[], term B[]){
     int row_term[MAX_TERMS], start_pos[MAX_TERMS];
     B[0].col = A[0].row; B[0].row = A[0].col; B[0].val = A[0].val;
@@ -60,6 +62,7 @@ void mat_mult(term A[], term B[], term D[]){
     A[totalA+1].row = rowA;
     newB[totalB+1].row = colB;
     newB[totalB+1].col = -1;
+    
     for(int i = 1 ; i <= totalA ; ){
         int col = newB[1].row;
         for(int j = 1 ; j <= totalB+1 ; ){
