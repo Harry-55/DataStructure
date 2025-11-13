@@ -90,7 +90,7 @@ void solve() {
     string s;
     getline(cin, s);
     int idx = 0;
-    for(char c : s) if(c != ' ') expr[idx++] = c;
+    for(auto c : s) if(c != ' ') expr[idx++] = c;
     expr[idx] = '\0';
     postfix();
     for(int i = 0; i < len; i++) {
