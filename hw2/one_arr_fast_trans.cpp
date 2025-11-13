@@ -52,7 +52,7 @@ void fast_transpose(term A[], term B[]) {
         for (int i = 0; i < num_col; i++) {
             int t = temp[i];
             temp[i] = sum;
-            sum += temp[i];
+            sum += t;
         }
         for (int i = 1; i <= num_term; i++) {
             int pos = temp[A[i].col]++;

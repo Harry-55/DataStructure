@@ -78,6 +78,7 @@ signed main() {
         for (int i = 0; i < n; i++) {
             cin >> terms[sb + i].expon;
         }
+
         avail = fb + 1;
         int msa, mfa, msb, mfb, sd, fd;
         msa = avail;
@@ -85,6 +86,11 @@ signed main() {
             attach(terms[sa].coef * terms[j].coef, terms[sa].expon + terms[j].expon);
         }
         mfa = avail - 1;
+
+        // sd = msa;
+        // fd = mfa;
+
+
         for (int i = sa + 1; i <= fa; i++) {
             msb = avail;
             for (int j = sb; j <= fb; j++) {
@@ -98,6 +104,9 @@ signed main() {
         sa = msa;
         fa = mfa;
     }
+
+
+
     cout << fa - sa + 1 << '\n';
     for (int i = sa; i <= fa; i++) {
         cout << terms[i].coef << " ";

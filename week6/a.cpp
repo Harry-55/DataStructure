@@ -16,6 +16,10 @@ int top;
 int isp[] = {12, 12, 13, 13, 0};
 int icp[] = {12, 12, 13, 13, 0};
 
+
+void push(precedence item) { Stack[++top] = item; }
+precedence pop() { return Stack[top--]; }
+
 precedence get_token(char *symbol, int *n) {
     *symbol = expr[(*n)++];
     switch (*symbol) {
@@ -27,10 +31,6 @@ precedence get_token(char *symbol, int *n) {
         default: return OPERAND;
     }
 }
-
-void push(precedence item) { Stack[++top] = item; }
-precedence pop() { return Stack[top--]; }
-
 char postfix_arr[MAX_EXPR_SIZE];
 int len = 0;
 

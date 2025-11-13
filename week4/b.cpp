@@ -3,6 +3,7 @@ using namespace std;
 #define int long long
 int arr[9][9];
 bool a = false;
+
 bool check(int n,int p){
     for (int i=0;i<9;i++) {
 		int x=n/9;

@@ -59,6 +59,7 @@ void mat_mult(term A[], term B[], term D[]){
     int row_begin = 1, row = A[1].row, sum = 0;
     term newB[MAX_TERMS];
     fast_transpose(b, newB);
+    
     A[totalA+1].row = rowA;
     newB[totalB+1].row = colB;
     newB[totalB+1].col = -1;
