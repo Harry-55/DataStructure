@@ -5,10 +5,10 @@ using namespace std;
 #define Harry55 ios::sync_with_stdio(0),cin.tie(0);
 
 bool check(int arr[]){
-    int stack[20], top = -1, index = 0;
+    int stack[3], top = -1, index = 0;
     for (int k = 0; k < 4; k++) {
         int i = arr[k];
-        while (index < 4 && (top == -1 || stack[top] != i)) {
+        while (index < 4 && (top == -1 || stack[top] != i) && top < 2) {
             stack[++top] = index;
             index++;
         }
